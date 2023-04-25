@@ -1,0 +1,41 @@
+/* Searchbar.module.css */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.searchForm {
+  display: flex; /* Cambiado de block a flex */
+  align-items: center;
+}
+
+.inputField {
+  margin-left: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.searchButton,
+.resetButton {
+  margin-left: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background-color: #6c757d;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.resetButton {
+  background-color: #dc3545;
+}
+
+.cardsContainer {
+  display: block;
+  margin-top: 1rem;
+}

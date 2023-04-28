@@ -78,6 +78,9 @@ function Home() {
   return (
     <>
       <div className={styles.container}>
+      <video autoPlay loop muted className={styles.backgroundVideo}>
+    <source src="https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/sword-shield/pokemon-in-the-wild.mp4" type="video/mp4" />
+  </video>
         <nav className={styles.filters}>
           <select className={styles.select} onChange={handleTipoChange}>
           <option value="ALL">ALL</option>
@@ -109,9 +112,9 @@ function Home() {
           <SearchBar />
         </div>
         {!isSearching && (
-          <div>
-            <Cards pokemons={displayPokemons} />
-          </div>
+        <div className={styles.cardsContainer}>
+        <Cards pokemons={displayPokemons} />
+      </div>
         )}
         {!isSearching && (
           <div className={styles.pagination}>

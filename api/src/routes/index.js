@@ -6,8 +6,6 @@ const routeTypes= require("./routeTypes")
 
 const router = Router();
 
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 router.use("/pokemons",routeTypes)
 router.use("/pokemons",routePokemons)
 

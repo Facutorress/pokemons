@@ -4,7 +4,6 @@ import { GET_POKEMONS, GET_POKEMON_BY_NAME, GET_TYPES,GET_POKEMON,FILTER_POKEMON
 const initialState = {pokemons:[],pokemon:[],pokemonName:[],types:[],filteredPokemons: [], isSearching: false,pokemonsOrderAll: [],}
 
 const rootReducer=(state = initialState, action)=>{
-
   switch(action.type){
     case GET_POKEMONS:
       return {...state, pokemons: action.payload,pokemonsOrderAll: action.payload}
@@ -56,7 +55,7 @@ case FILTER_POKEMONS:
     sortedFilteredPokemons.sort(sortFunction(action.sortType, action.sortDirection));
     sortedPokemons = [...state.pokemons].sort(sortFunction(action.sortType, action.sortDirection));
   } else {
-    // Restablecer la lista a su estado original cuando sortType es "ALL"
+
     sortedPokemons = [...state.pokemonsOrderAll];
   }
 

@@ -31,7 +31,7 @@ const [errors, setErrors]= useState({
   defense:"",
   speed:"",
   weight:"",
-  height:""
+  height:"" 
 })
 
 const handleSubmit = async (event) => {
@@ -65,8 +65,14 @@ if (property === "types") {
 setForm({...form,[property]:value})
 validate({...form,[property]:value}, errors, setErrors)
 }
-return (
-  <form onSubmit={handleSubmit} className={styles.formContainer}>
+  return (
+    <>
+      <div className={styles.wrapper}>
+      <video autoPlay loop muted className={styles.backgroundVideo}>
+    <source src="https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/sword-shield/dynamax-battle.mp4" type="video/mp4" />
+  </video>
+        <div className={styles.formSide}>
+        <form onSubmit={handleSubmit} className={styles.formContainer}>
     <div className={styles.formRow}>
       <label htmlFor="name" className={styles.label}>Name:</label>
       <input type="text" id="name" name="name" value={form.name} onChange={changeHandler} className={styles.input} />
@@ -120,8 +126,26 @@ return (
 <div className={styles.formRow}>
         <button type="submit" className={styles.submitBtn}>Create</button>
       </div>
-    </form>
+    </form> 
+        </div>
+        <div className={styles.previewSide}>
+          <div className={styles.cont}>
+            <p>Name:{form.name}</p>
+            <p>Hp:{form.hp}</p>
+            <p>Attack:{form.attack}</p>
+            <p>Defense:{form.defense}</p>
+            <p>Speed:{form.speed}</p>
+            <p>Weight:{form.weight}</p>
+            <p>Height:{form.height}</p>
+
+            
+            <img src={form.image} alt=" " className={styles.imagee} />
+          </div>
+        </div>
+      </div>
+    </>
   );
+  
 };
 
 export default Form;

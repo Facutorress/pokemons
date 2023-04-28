@@ -1,10 +1,16 @@
 import axios from "axios";
 
 const validate = (form, errors, setErrors) => {
-  const typesError = !form.types ? "Debe ingresar al menos un tipo" : form.types.length > 35 ? "Los tipos no pueden tener más de 35 caracteres" : "";
+  
   const nameError = !form.name ? "El nombre es requerido" : form.name.length > 35 ? "El nombre no puede tener más de 35 caracteres" : "";
   const imageError = !form.image ? "La imagen es requerida" : !/^https?:\/\/\S+$/.test(form.image) ? "La URL de la imagen no es válida" : "";
   const positiveNumberError = (value) => isNaN(value) || value <= 0 ? `El valor debe ser un número positivo` : "";
+  const typesError = !form.types || form.types.length === 0
+  ? "Debe ingresar al menos un tipo"
+  : form.types.length > 35
+  ? "Los tipos no pueden tener más de 35 caracteres"
+  : "";
+
   setErrors({
     ...errors,
     name: nameError,
@@ -26,7 +32,6 @@ const validate = (form, errors, setErrors) => {
   return true;
 };
 const postData = async (form)=>{
-  console.log(form)
  await axios.post("http://localhost:3001/pokemons",form)
   .then((response) => {
     alert("Todo ok");

@@ -25,9 +25,11 @@ function Detail() {
     height,
     created,
   } = useSelector((state) => state.pokemon);
-
   return (
     <div className={styles.container}>
+      <video autoPlay loop muted className={styles.backgroundVideo}>
+    <source src="https://assets.pokemon.com//assets/cms2-es-es/img/misc/virtual-backgrounds/sword-shield/pokemon-in-the-wild.mp4" type="video/mp4" />
+  </video>
       <div className={styles.detail}>
         <Link to="/Home">
         <button className={styles.closeButton}>
@@ -37,13 +39,13 @@ function Detail() {
         <img src={image} alt={name} />
         <p>ID: {id}</p>
         <p>Nombre: {name}</p>
-        <div>
-          Tipo:{" "}
-          {type &&
-            type.map((t) => (
-              <p key={t}>{t}</p>
-            ))}
-        </div>
+        <p>
+  Tipo:
+  {type &&
+    type.map((t) => (
+      <p key={t} className="type-item">{t}</p>
+    ))}
+</p>
         <p>HP: {hp}</p>
         <p>Ataque: {attack}</p>
         <p>Defensa: {defense}</p>

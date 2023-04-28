@@ -2,19 +2,31 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #3c5aa6;
+  background-color: rgb(255, 215, 0);
   padding: 10px;
   border-radius: 5px;
 }
 
 .link {
-  color: #ffffff;
+  color: #030303;
   text-decoration: none;
+  font-family: 'Titan One';
   font-size: 18px;
-  font-weight: bold;
   transition: color 0.2s;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 0.25rem 0.5rem;
+}
+.link.home::before {
+  content: "🏠";
+  margin-right: 5px;
+}
+
+.link.create::before {
+  content: "✏";
+  margin-right: 5px;
 }
 
 .link:hover {
-  color: #ffcb05;
+  color: #fffefe;
 }
